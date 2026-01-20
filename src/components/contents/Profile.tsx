@@ -17,8 +17,8 @@ export const Profile = () => {
                         <h3 className="text-lg font-bold">仕込む</h3>
                         <p className="text-sm text-gray-400">shicom</p>
                     </div>
-                    <span className="px-1 py-1 border rounded-full text-xs">{X_LINK}</span>
-                    <span className="px-1 py-1 border rounded-full text-xs">{INS_LINK}</span>
+                    <span className="px-2 border rounded-full text-xs">{X_LINK}</span>
+                    <span className="px-2 border rounded-full text-xs">{INS_LINK}</span>
                 </div>
                 <p className="pt-4">
                     絵や漫画を描きます<br />
