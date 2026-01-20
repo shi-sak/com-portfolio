@@ -1,4 +1,4 @@
-import { X_LINK } from "../../data/linkData";
+import { X_LINK } from "../../data/LinkData";
 
 export const Contact = () => {
     return (
@@ -7,7 +7,7 @@ export const Contact = () => {
                 お問い合わせは
                 {X_LINK}
                 のDM、<br/>
-                もしくは以下のフォームよりお願いいたします。
+                もしくは以下のフォーム(準備中)よりお願いいたします。
             </p>
         </div>
     );

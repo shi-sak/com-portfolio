@@ -47,13 +47,35 @@ function App() {
     document.body.style.overflow = activeTab ? "hidden" : "auto";
   }, [activeTab]);
 
+  // workId があるなら、強制的に works タブにする
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("workId")) {
+      setActiveTab("works");
+    }
+  }, []);
+
+  // ★ これを作って Navigation に渡す！
+  const handleTabChange = (id: TabId | null) => {
+    // 1. タブの状態を更新
+    setActiveTab(id);
+
+    // 2. URLのお掃除（workId があれば消す）
+    const url = new URL(window.location.href);
+    if (url.searchParams.has("workId")) {
+      url.searchParams.delete("workId");
+      // 履歴を残さず(replaceState)、URLを綺麗にする
+      window.history.replaceState(null, "", url.toString());
+    }
+  };
+
   return (
     <Layout>
       {/* ナビゲーション */}
       <Navigation
         tabs={TABS}
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabChange}
       />
 
       {/* モーダル */}

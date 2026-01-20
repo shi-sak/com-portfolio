@@ -1,4 +1,3 @@
-// src/components/ui/Navigation.tsx
 import { motion } from "motion/react";
 import type { TabItem, TabId } from "../../types";
 import { clsx } from "clsx";
@@ -13,7 +12,8 @@ export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
     return (
         <nav
             className="
-        bg-black text-white 
+        bg-white text-black
+        border-2 border-black
         rounded-full shadow-xl 
         flex items-center z-50
 
@@ -37,7 +37,7 @@ export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
                 text-[11px] md:text-sm 
                 font-bold 
                 tracking-wider 
-                hover:text-gray-300 transition-colors shrink-0
+                hover:text-black transition-colors shrink-0
                 ">
                 TOP
             </motion.button>
@@ -47,7 +47,7 @@ export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
                     onClick={() => onTabChange(activeTab === tab.id ? null : tab.id)}
 
                     whileTap={{ scale: 0.8 }}
-                    
+
                     className="
                     relative
                     px-3 py-1
@@ -57,15 +57,18 @@ export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
                     hover:text-gray-300 transition-colors shrink-0
                     ">
                     {/* テキスト部分 */}
-                    <span className={clsx(activeTab === tab.id ? "text-yellow-400" : "text-white")}>
+                    <span className={clsx(activeTab === tab.id ? "text-yellow-500" : "text-black")}>
                         {tab.label}
                     </span>
 
                     {/* 選択中だけ出る「下線」のアニメーション */}
                     {activeTab === tab.id && (
                         <motion.div
-                            layoutId="underline"
-                            className="absolute left-0 right-0 -bottom-1 h-[2px] bg-yellow-400"
+                            initial={{ opacity: 0, scaleX: 0 }}
+                            animate={{ opacity: 1, scaleX: 1 }}
+                            transition={{ duration: 0.2 }}
+
+                            className="absolute left-0 right-0 -bottom-1 h-[2px] bg-yellow-500"
                         />
                     )}
                 </motion.button>

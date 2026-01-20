@@ -1,12 +1,14 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useLayoutEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { WORKS_DATA, WORK_CATEGORY, type Work } from "../../data/WorksData";
 
 type Props = {
     onSelect: (work: Work) => void;
+    initialId: number | null;
 };
 
-export const WorkList = ({ onSelect }: Props) => {
+export const WorkList = ({ onSelect, initialId }: Props) => {
+
     const [category, setCategory] = useState(WORK_CATEGORY[0]);
     const [sortOrder, setSortOrder] = useState<"new" | "old">("new");
 
@@ -20,6 +22,13 @@ export const WorkList = ({ onSelect }: Props) => {
         });
         return works;
     }, [category, sortOrder]);
+
+    const targetRef = useRef<HTMLDivElement>(null);
+    useLayoutEffect(() => {
+        if (targetRef.current) {
+            targetRef.current.scrollIntoView({ behavior: "instant", block: "center" });
+        }
+    }, []);
 
     return (
         <motion.div
@@ -71,14 +80,22 @@ export const WorkList = ({ onSelect }: Props) => {
                     {filteredWorks.map((work) => (
                         <motion.div
                             key={work.id}
+
+                            ref={work.id === initialId ? targetRef : null}
+
                             layoutId={`work-${work.id}`}
                             onClick={() => onSelect(work)}
 
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.2 } }}
+                            variants={{
+                                hidden: { opacity: 0, scale: 0.8 }, // 出現前 & 消える時
+                                rest: { opacity: 1, scale: 1 },     // 通常時（ホバーしてない時）
+                                hover: { scale: 1.02 }              // ホバーした時（カード自体も少し拡大）
+                            }}
 
-                            whileHover="hover"
+                            initial="hidden"      // 最初は hidden
+                            animate="rest"        // 登場したら rest になる（これでオーバーレイに rest が伝わります！）
+                            exit="hidden"         // 消える時は hidden
+                            whileHover="hover"    // ホバー時は hover
                             whileTap="tap"
                             className="relative aspect-square rounded-2xl cursor-pointer overflow-hidden shadow-sm"
                         >
@@ -109,6 +126,7 @@ export const WorkList = ({ onSelect }: Props) => {
                                         hover: { y: 0, opacity: 1 }
                                     }}
                                 >
+                                    <p className="font-mono text-xs text-gray-300">{work.date}</p>
                                     <p className="font-bold text-lg">{work.title}</p>
                                     <p className="text-xs text-gray-300">{work.category}</p>
                                 </motion.div>

@@ -1,4 +1,4 @@
-import { LINK_DATA } from "../../data/linkData";
+import { LINK_DATA } from "../../data/LinkData";
 
 export const Links = () => {
     return (
