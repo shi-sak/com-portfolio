@@ -67,7 +67,7 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                 <select
                     value={sortOrder}
                     onChange={(e) => setSortOrder(e.target.value as "new" | "old")}
-                    className="px-2 py-1 font-bold rounded-lg border border-gray-200 text-sm bg-white focus:outline-none cursor-pointer"
+                    className="px-2 py-1 text-gray-500 font-bold rounded-lg border border-gray-200 text-sm bg-white focus:outline-none cursor-pointer"
                 >
                     <option value="new">Newest</option>
                     <option value="old">Oldest</option>
