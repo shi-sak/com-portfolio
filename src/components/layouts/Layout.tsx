@@ -12,7 +12,7 @@ export const Layout = ({ children }: Props) => {
             {/* --- 背景 --- */}
             <BackgroundEffect />
             {/* --- メインコンテンツ --- */}
-            <div className="relative z-10 flex flex-col items-center pt-16 px-4 pb-20">
+            <div className="relative z-10 flex flex-col items-center pt-10 px-4 pb-20">
                 <h1 className="relative z-50 text-xl font-bold mb-8 tracking-widest pointer-events-none">
                     仕込むweb
                 </h1>
