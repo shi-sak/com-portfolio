@@ -33,7 +33,7 @@ export const Modal = ({ activeTab, tabs, onClose }: Props) => {
                             transition={{ type: "spring", bounce: 0.3, duration: 0.5 }}
                             className="w-full max-w-lg max-h-full bg-white border-2 border-black rounded-[2rem] shadow-2xl overflow-hidden flex flex-col pointer-events-auto"
                         >
-                            <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10 shrink-0">
+                            <div className="px-6 py-2 border-b border-gray-100 flex justify-between items-center bg-white sticky top-0 z-10 shrink-0">
                                 <h2 className="text-2xl font-bold uppercase tracking-tight">
                                     {currentContent.title}
                                 </h2>

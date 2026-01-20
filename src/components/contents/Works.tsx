@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowLeft } from "lucide-react"; // 戻るボタンのアイコン
 
-import { WORKS_DATA, type Work } from "../../data/works";
+import { WORKS_DATA, type Work } from "../../data/WorksData";
 
 export const Works = () => {
     // --- 2. 状態管理: 選ばれた作品を入れる箱 (nullなら一覧表示) ---
@@ -27,10 +27,9 @@ export const Works = () => {
                                 layoutId={`work-${work.id}`}
                                 onClick={() => setSelectedWork(work)}
 
-                                /* ★ここがポイント！ */
-                                initial="rest"       // 普段の状態
-                                whileHover="hover"   // マウスが乗った時の状態
-                                whileTap="tap"       // クリックした時の状態
+                                initial="rest"      
+                                whileHover="hover"   
+                                whileTap="tap"       
                                 animate="rest"
 
                                 className={`
