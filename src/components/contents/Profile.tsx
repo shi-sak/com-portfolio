@@ -41,21 +41,8 @@ export const Profile = () => {
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2 pt-4 border-t">
                     PROJECTS
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* VTuber Card */}
-                    <div className="bg-gray-50 p-4 rounded-xl text-sm">
-                        <h4 className="font-bold">見込む(VTuber)</h4>
-                        <p className="text-sm text-gray-500 mt-1"></p>
-                        <p className="text-sm mt-2"></p>
-                    </div>
+   
 
-                    {/* Maid-chan Card */}
-                    <div className="bg-gray-50 p-4 rounded-xl text-sm">
-                        <h4 className="font-bold">#maid_chan_doing_random_things</h4>
-                        <p className="text-sm text-gray-500 mt-1"></p>
-                        <p className="text-sm mt-2"></p>
-                    </div>
-                </div>
             </section>
 
             {/* 3. 好きなもの */}

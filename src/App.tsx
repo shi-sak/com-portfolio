@@ -1,6 +1,8 @@
-// src/App.tsx
 import { useState, useEffect } from "react";
+import { AnimatePresence } from "motion/react";
+
 import { Layout } from "./components/layouts/Layout";
+import { Loading } from "./components/ui/Loading";
 import { Navigation } from "./components/ui/Navigation";
 import { Modal } from "./components/ui/Modal";
 import type { TabItem, TabId } from "./types";
@@ -10,6 +12,7 @@ import { Profile } from "./components/contents/Profile";
 import { Works } from "./components/contents/Works";
 import { Contact } from "./components/contents/Contact";
 import { Links } from "./components/contents/Links";
+
 
 // コンテンツのデータ定義
 const TABS: TabItem[] = [
@@ -40,6 +43,18 @@ const TABS: TabItem[] = [
 ];
 
 function App() {
+
+  //loading
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+
   const [activeTab, setActiveTab] = useState<TabId | null>(null);
 
   // モーダルが開いている時は背景スクロールを止める
@@ -70,21 +85,28 @@ function App() {
   };
 
   return (
-    <Layout>
-      {/* ナビゲーション */}
-      <Navigation
-        tabs={TABS}
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
-      />
+    <>
+      {/* loading */}
+      <AnimatePresence mode="wait">
+        {isLoading && <Loading key="loading" />}
+      </AnimatePresence>
 
-      {/* モーダル */}
-      <Modal
-        tabs={TABS}
-        activeTab={activeTab}
-        onClose={() => setActiveTab(null)}
-      />
-    </Layout>
+      <Layout>
+        {/* ナビゲーション */}
+        <Navigation
+          tabs={TABS}
+          activeTab={activeTab}
+          onTabChange={handleTabChange}
+        />
+
+        {/* モーダル */}
+        <Modal
+          tabs={TABS}
+          activeTab={activeTab}
+          onClose={() => setActiveTab(null)}
+        />
+      </Layout>
+    </>
   );
 }
 

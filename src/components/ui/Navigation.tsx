@@ -15,7 +15,7 @@ export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
         bg-white text-black
         border-2 border-black
         rounded-full shadow-xl 
-        flex items-center z-50
+        flex items-center
 
         px-3 md:px-8 
         py-2 md:py-4
@@ -24,6 +24,7 @@ export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
         max-w-[95vw] md:max-w-fit
         overflow-x-auto
         whitespace-nowrap
+        relative z-[9999] mb-8
         "
         >
             <motion.button
