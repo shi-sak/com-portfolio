@@ -42,7 +42,6 @@ export const Modal = ({ activeTab, tabs, onClose }: Props) => {
                     <div className="fixed inset-0 z-50 flex items-start justify-center pointer-events-none px-4 pt-44 pb-10">
                         <motion.div
                             key={activeTab}
-                            layoutId="modal-window"
                             initial={{ opacity: 0, y: 80 }}   // 初期状態：80px下にいて見えない
                             animate={{ opacity: 1, y: 0 }}    // 登場：定位置（y=0）に戻ってくる
                             exit={{ opacity: 0, y: 80 }}      // 退場：また80px下に消えていく

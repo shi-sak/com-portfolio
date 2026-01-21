@@ -12,13 +12,13 @@ type Props = {
 export const Layout = ({ children }: Props) => {
     const constraintsRef = useRef(null);
     return (
-        <div className="relative min-h-screen font-sans text-gray-800 overflow-hidden gap-8">
+        <div className="relative min-h-screen font-sans text-gray-800 overflow-hidden">
             {/* --- 背景 --- */}
             <BackgroundEffect />
             {/* --- メインコンテンツ --- */}
             <motion.div
                 ref={constraintsRef}
-                className="relative z-10 flex flex-col items-center pt-10 px-4 pb-20 min-h-screen" // min-h-screenを追加して画面いっぱいに広げる
+                className="relative z-10 flex flex-col items-center pt-10 px-4 pb-20 min-h-screen"
             >
                 <motion.img
                     src={logoImg}
