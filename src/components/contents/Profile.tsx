@@ -89,7 +89,7 @@ export const Profile = () => {
                 <h3 className="text-xl font-bold mb-4 pt-4 border-t">
                     LIKES
                 </h3>
-                <div className="flex flex-wrap gap-2 pb-4">
+                <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 border rounded-full text-sm">📚COMIC</span>
                     <span className="px-3 py-1 border rounded-full text-sm">🎶MUSIC</span>
                     <span className="px-3 py-1 border rounded-full text-sm">🎮e-Sports</span>

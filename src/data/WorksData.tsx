@@ -20,7 +20,7 @@ export const WORKS_DATA: Work[] = [
         id: 1,
         title: "仕込むweb開設",
         category: WORK_CATEGORY[3],
-        date: "2026-1-23",
+        date: "2026-01-23",
         imageSrc: img1,
         description: (
             <>
@@ -33,7 +33,7 @@ export const WORKS_DATA: Work[] = [
         id: 2,
         title: "仕込むスタンプ2 発売",
         category: WORK_CATEGORY[3],
-        date: "2026-1-23",
+        date: "2026-01-23",
         imageSrc: img2,
         description: (
             <>
