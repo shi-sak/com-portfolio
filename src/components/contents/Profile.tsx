@@ -5,20 +5,31 @@ export const Profile = () => {
     return (
         <div className="space-y-4">
             <section>
-                <div className="flex gap-4 items-end border-b border-gray-200 pb-4">
-                    <div className="flex">
-                        <img
-                            className="w-16 aspect-square object-cover"
-                            src={icon}
-                        />
+                <div className="flex flex-wrap items-end justify-between border-b border-gray-200 pb-4 gap-x-4 gap-y-3">
 
+                    {/* グループ1：アイコンと名前（ここは絶対に横並び死守） */}
+                    <div className="flex items-center gap-3">
+                        <img
+                            className="w-14 h-14 md:w-16 md:h-16 aspect-square object-cover rounded-full" // 少し小さく調整
+                            src={icon}
+                            alt="icon"
+                        />
+                        <div>
+                            <h3 className="text-lg font-bold leading-tight">仕込む</h3>
+                            <p className="text-sm text-gray-400">shicom</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 className="text-lg font-bold">仕込む</h3>
-                        <p className="text-sm text-gray-400">shicom</p>
+
+                    {/* グループ2：SNSリンク（幅が狭いとこのグループごと下に落ちる） */}
+                    <div className="flex gap-2">
+                        <span className="px-3 py-1 border border-gray-300 rounded-full text-xs hover:bg-black hover:text-white transition-colors cursor-pointer">
+                            {X_LINK}
+                        </span>
+                        <span className="px-3 py-1 border border-gray-300 rounded-full text-xs hover:bg-black hover:text-white transition-colors cursor-pointer">
+                            {INS_LINK}
+                        </span>
                     </div>
-                    <span className="px-2 border rounded-full text-xs">{X_LINK}</span>
-                    <span className="px-2 border rounded-full text-xs">{INS_LINK}</span>
+
                 </div>
                 <p className="pt-4 pl-4 text-gray-500">
                     絵や漫画を描きます<br />

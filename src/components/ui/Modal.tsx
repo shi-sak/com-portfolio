@@ -39,7 +39,7 @@ export const Modal = ({ activeTab, tabs, onClose }: Props) => {
                         className="fixed inset-0 bg-white/60 backdrop-blur-sm z-40"
                     />
 
-                    <div className="fixed inset-0 z-50 flex items-start justify-center pointer-events-none px-4 pt-52 pb-10">
+                    <div className="fixed inset-0 z-50 flex items-start justify-center pointer-events-none px-4 pt-44 pb-10">
                         <motion.div
                             key={activeTab}
                             layoutId="modal-window"

@@ -12,7 +12,7 @@ type Props = {
 export const Layout = ({ children }: Props) => {
     const constraintsRef = useRef(null);
     return (
-        <div className="relative min-h-screen font-sans text-gray-800 overflow-hidden">
+        <div className="relative min-h-screen font-sans text-gray-800 overflow-hidden gap-8">
             {/* --- 背景 --- */}
             <BackgroundEffect />
             {/* --- メインコンテンツ --- */}
@@ -38,7 +38,7 @@ export const Layout = ({ children }: Props) => {
 
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95, cursor: "grabbing" }}
-                    className="relative z-50 mb-8 w-40 h-auto cursor-grab will-change-transform" // will-changeで動作を滑らかに
+                    className="relative z-50 mb-2 w-40 h-auto cursor-grab will-change-transform" // will-changeで動作を滑らかに
                 />
 
                 {/* メイン */}
