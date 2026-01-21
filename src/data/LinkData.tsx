@@ -111,7 +111,7 @@ export const MICOM_LINK: ReactNode = (
             href={LINK_DATA.find(link=> link.title=="YouTube")?.link}
             className="underline"
         >
-        見込むちゃん    
+        見込むちゃん(YouTube) 
         </a>
     </>
 )

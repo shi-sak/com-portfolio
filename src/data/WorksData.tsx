@@ -25,13 +25,13 @@ export const WORKS_DATA: Work[] = [
         description: (
             <>
                 <p>仕込むwebを作成しました！</p>
-                <p>シンプルでぽよぽよした感じです</p>
+                <p>シンプルでぽよぽよした感じにしました</p>
             </>
         ),
     },
     {
         id: 2,
-        title: "仕込むスタンプ2",
+        title: "仕込むスタンプ2 発売",
         category: WORK_CATEGORY[3],
         date: "2026-1-23",
         imageSrc: img2,
@@ -39,46 +39,23 @@ export const WORKS_DATA: Work[] = [
             <>
                 <p>LINEスタンプ第2弾を作りました！</p>
                 <p>第1弾と合わせてよろしくお願いします</p>
+                <p><a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://store.line.me/stickershop/product/32485026"
+                    className="underline"
+                >
+                    👉購入リンク
+                </a></p>
+                <p><a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://store.line.me/stickershop/product/29162308"
+                    className="underline"
+                >
+                    👉第一弾はこちら
+                </a></p>
             </>
         ),
-    },
-    {
-        id: 3,
-        title: "Sample3",
-        category: WORK_CATEGORY[2],
-        date: "2026-1-23",
-        imageSrc: img1,
-        description: (
-            <>
-                <p>xx</p>
-                <p>xxxx</p>
-                <p>xx</p>
-                <p>xxxx</p>
-            </>
-        ),
-    },
-    {
-        id: 4,
-        title: "Sample4",
-        category: WORK_CATEGORY[4],
-        date: "2026-1-23",
-        imageSrc: img1,
-        description: "xx",
-    },
-    {
-        id: 5,
-        title: "Sample5",
-        category: WORK_CATEGORY[1],
-        date: "2026-1-23",
-        imageSrc: img1,
-        description: "xx",
-    },
-    {
-        id: 6,
-        title: "Sample6",
-        category: WORK_CATEGORY[1],
-        date: "2026-1-23",
-        imageSrc: img1,
-        description: "xx",
     },
 ];

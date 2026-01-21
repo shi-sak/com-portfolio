@@ -7,12 +7,13 @@ import { Navigation } from "./components/ui/Navigation";
 import { Modal } from "./components/ui/Modal";
 import type { TabItem, TabId } from "./types";
 
-// 作ったコンポーネントをインポート
+// 各モーダル
 import { Profile } from "./components/contents/Profile";
 import { Works } from "./components/contents/Works";
 import { Contact } from "./components/contents/Contact";
 import { Links } from "./components/contents/Links";
 
+import { useKonamiCode } from "./hooks/secretCommand";
 
 // コンテンツのデータ定義
 const TABS: TabItem[] = [
@@ -57,7 +58,7 @@ function App() {
 
   const [activeTab, setActiveTab] = useState<TabId | null>(null);
 
-  // // モーダルが開いている時は背景スクロールを止める
+  // // モーダルが開いている時は背景スクロールを止める のちほどなんか入れたい
   // useEffect(() => {
   //   document.body.style.overflow = activeTab ? "hidden" : "auto";
   // }, [activeTab]);
@@ -84,6 +85,16 @@ function App() {
     }
   };
 
+  //隠し要素
+  const [isSecretMode, setIsSecretMode] = useState(false);
+  useKonamiCode(
+    activeTab === null, // TOP画面のときだけ有効 (isEnabled)
+    () => {
+      // コマンド成功時の処理
+      setIsSecretMode(true); // モード切替など
+    }
+  );
+
   return (
     <>
       {/* loading */}
@@ -92,6 +103,15 @@ function App() {
       </AnimatePresence>
 
       <Layout>
+
+        {isSecretMode && (
+          <div className="fixed top-0 left-0 w-full h-full pointer-events-none flex items-center justify-center">
+            <h1>
+              SECRET MODE
+            </h1>
+          </div>
+        )}
+
         {/* ナビゲーション */}
         <Navigation
           tabs={TABS}
