@@ -62,7 +62,7 @@ export const LINK_DATA: Link[] = [
         description: "@com_nicom",
         link: "https://x.com/com_nicom",
     },
-]
+];
 
 export const X_LINK: ReactNode = (
     <>
@@ -72,10 +72,10 @@ export const X_LINK: ReactNode = (
             href={LINK_DATA[0].link}
             //className="underline"
         >
-        {LINK_DATA[0].title}
+            {LINK_DATA[0].title}
         </a>
     </>
-)
+);
 
 export const INS_LINK: ReactNode = (
     <>
@@ -85,10 +85,10 @@ export const INS_LINK: ReactNode = (
             href={LINK_DATA[1].link}
             //className="underline"
         >
-        {LINK_DATA[1].title}    
+            {LINK_DATA[1].title}
         </a>
     </>
-)
+);
 
 export const BS_LINK: ReactNode = (
     <>
@@ -98,20 +98,20 @@ export const BS_LINK: ReactNode = (
             href={LINK_DATA[2].link}
             //className="underline"
         >
-        {LINK_DATA[2].title}  
+            {LINK_DATA[2].title}
         </a>
     </>
-)
+);
 
 export const MICOM_LINK: ReactNode = (
     <>
         <a
             target="_blank"
             rel="noopener noreferrer"
-            href={LINK_DATA.find(link=> link.title=="YouTube")?.link}
+            href={LINK_DATA.find((link) => link.title == "YouTube")?.link}
             className="underline"
         >
-        見込むちゃん(YouTube) 
+            見込むちゃん(YouTube)
         </a>
     </>
-)
+);

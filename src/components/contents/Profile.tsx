@@ -5,70 +5,85 @@ export const Profile = () => {
     return (
         <div className="space-y-4">
             <section>
-                <div className="flex flex-wrap items-end justify-between border-b border-gray-200 pb-4 gap-x-4 gap-y-3">
-
+                <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-3 border-b border-gray-200 pb-4">
                     {/* グループ1：アイコンと名前（ここは絶対に横並び死守） */}
                     <div className="flex items-center gap-3">
                         <img
-                            className="w-14 h-14 md:w-16 md:h-16 aspect-square object-cover rounded-full" // 少し小さく調整
+                            className="aspect-square h-14 w-14 rounded-full object-cover md:h-16 md:w-16" // 少し小さく調整
                             src={icon}
                             alt="icon"
                         />
                         <div>
-                            <h3 className="text-lg font-bold leading-tight">仕込む</h3>
+                            <h3 className="text-lg font-bold leading-tight">
+                                仕込む
+                            </h3>
                             <p className="text-sm text-gray-400">shicom</p>
                         </div>
                     </div>
 
                     {/* グループ2：SNSリンク（幅が狭いとこのグループごと下に落ちる） */}
                     <div className="flex gap-2">
-                        <span className="px-3 py-1 border border-gray-300 rounded-full text-xs hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        <span className="cursor-pointer rounded-full border border-gray-300 px-3 py-1 text-xs transition-colors hover:bg-black hover:text-white">
                             {X_LINK}
                         </span>
-                        <span className="px-3 py-1 border border-gray-300 rounded-full text-xs hover:bg-black hover:text-white transition-colors cursor-pointer">
+                        <span className="cursor-pointer rounded-full border border-gray-300 px-3 py-1 text-xs transition-colors hover:bg-black hover:text-white">
                             {INS_LINK}
                         </span>
                     </div>
-
                 </div>
-                <p className="pt-4 pl-4 text-gray-500">
-                    絵や漫画を描きます<br />
-                    モノクロの絵が好きです<br />
+                <p className="pl-4 pt-4 text-gray-500">
+                    絵や漫画を描きます
+                    <br />
+                    モノクロの絵が好きです
+                    <br />
                     コミティア等のイベントによく出展しています
                 </p>
-                <div className="bg-gray-50 p-4 rounded-xl text-sm">
-                    <h4 className="font-bold mb-2">👉参加予定イベント</h4>
-                    <p className="text-gray-400 text-xs ">最新の情報は
+                <div className="rounded-xl bg-gray-50 p-4 text-sm">
+                    <h4 className="mb-2 font-bold">👉参加予定イベント</h4>
+                    <p className="text-xs text-gray-400">
+                        最新の情報は
                         <span className="underline">{X_LINK}</span>
-                        をご確認ください</p>
+                        をご確認ください
+                    </p>
 
-                    <ul className="px-4 pt-4 list-disc">
+                    <ul className="list-disc px-4 pt-4">
                         <li>2026/2/22 COMITIA155 き21a</li>
                     </ul>
                 </div>
             </section>
             {/* Project */}
             <section>
-                <h3 className="text-xl font-bold mb-4 flex items-center gap-2 pt-4 border-t">
+                <h3 className="mb-4 flex items-center gap-2 border-t pt-4 text-xl font-bold">
                     PROJECTS
                 </h3>
                 <div className="flex flex-col gap-4">
-
-                    <div className="bg-gray-50 p-4 rounded-xl text-sm">
+                    <div className="rounded-xl bg-gray-50 p-4 text-sm">
                         <h4 className="font-bold">仕込みコンプレッサー</h4>
-                        <p className="text-sm text-gray-500 mt-1">サークル『仕込みコンプレッサー』にて<br />同人イベント(主にコミティア)に参加しています</p>
+                        <p className="mt-1 text-sm text-gray-500">
+                            サークル『仕込みコンプレッサー』にて
+                            <br />
+                            同人イベント(主にコミティア)に参加しています
+                        </p>
                     </div>
 
-                    <div className="bg-gray-50 p-4 rounded-xl text-sm">
+                    <div className="rounded-xl bg-gray-50 p-4 text-sm">
                         <h4 className="font-bold">見込む(VTuber)</h4>
-                        <p className="text-sm text-gray-500 mt-1">VTuberの見込むちゃんの運営をしています</p>
-                        <p className="text-sm text-gray-500 mt-1" >{MICOM_LINK}</p>
+                        <p className="mt-1 text-sm text-gray-500">
+                            VTuberの見込むちゃんの運営をしています
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500">
+                            {MICOM_LINK}
+                        </p>
                     </div>
 
-                    <div className="bg-gray-50 p-4 rounded-xl text-sm">
-                        <h4 className="font-bold">#maid_chan_doing_random_things</h4>
-                        <p className="text-sm text-gray-500 mt-1">X(Twitter)でたまに更新しているイラストシリーズです</p>
-                        <p className="text-sm text-gray-500 mt-1">
+                    <div className="rounded-xl bg-gray-50 p-4 text-sm">
+                        <h4 className="font-bold">
+                            #maid_chan_doing_random_things
+                        </h4>
+                        <p className="mt-1 text-sm text-gray-500">
+                            X(Twitter)でたまに更新しているイラストシリーズです
+                        </p>
+                        <p className="mt-1 text-sm text-gray-500">
                             <a
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -79,37 +94,48 @@ export const Profile = () => {
                             </a>
                         </p>
                     </div>
-                    <p className="text-sm text-gray-500 mt-1">　etc...</p>
+                    <p className="mt-1 text-sm text-gray-500">　etc...</p>
                 </div>
-
             </section>
 
             {/* Likes */}
             <section>
-                <h3 className="text-xl font-bold mb-4 pt-4 border-t">
-                    LIKES
-                </h3>
+                <h3 className="mb-4 border-t pt-4 text-xl font-bold">LIKES</h3>
                 <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 border rounded-full text-sm">📚COMIC</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">🎶MUSIC</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">🎮e-Sports</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">🍺DRINK</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">🍜RA-MEN</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">🏃RUNNING</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">🖥WEB</span>
-                    <span className="px-3 py-1 border rounded-full text-sm">etc...</span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        📚COMIC
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        🎶MUSIC
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        🎮e-Sports
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        🍺DRINK
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        🍜RA-MEN
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        🏃RUNNING
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        🖥WEB
+                    </span>
+                    <span className="rounded-full border px-3 py-1 text-sm">
+                        etc...
+                    </span>
                 </div>
             </section>
 
             {/* おすすめイラスト */}
             <section>
-                <h3 className="text-xl font-bold pt-4 border-t">
+                <h3 className="border-t pt-4 text-xl font-bold">
                     ILLUST SAMPLE
                 </h3>
-
                 (ここにイラストを何枚か貼る)
-
-                <p className="pt-4 text-gray-500 text-sm">
+                <p className="pt-4 text-sm text-gray-500">
                     <span className="underline">{X_LINK}</span>
                     等、各種SNSにて随時イラストをアップしています
                 </p>

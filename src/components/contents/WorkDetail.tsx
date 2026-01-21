@@ -10,7 +10,6 @@ type Props = {
 };
 
 export const WorkDetail = ({ work, onClose }: Props) => {
-
     const topRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
         topRef.current?.scrollIntoView({ behavior: "instant", block: "start" });
@@ -23,13 +22,13 @@ export const WorkDetail = ({ work, onClose }: Props) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col h-full gap-6"
+            className="flex h-full flex-col gap-6"
         >
             <div ref={topRef} className="absolute -top-24" />
             {/* 戻るボタン */}
             <button
                 onClick={onClose}
-                className="self-start flex items-center text-sm font-bold text-gray-400 hover:text-black transition-colors"
+                className="flex items-center self-start text-sm font-bold text-gray-400 transition-colors hover:text-black"
             >
                 <ArrowLeft size={16} className="mr-1" /> BACK
             </button>
@@ -40,28 +39,23 @@ export const WorkDetail = ({ work, onClose }: Props) => {
                 <motion.img
                     src={work.imageSrc}
                     alt={work.title}
-                    className="aspect-video w-full h-full object-cover object-center"
+                    className="aspect-video h-full w-full object-cover object-center"
                 />
 
                 {/* テキスト情報 */}
                 <div>
+                    <div className="mb-2 flex items-center justify-between">
+                        <h3 className="text-2xl font-bold">{work.title}</h3>
 
-                    <div className="flex items-center justify-between mb-2">
-
-                        <h3 className="text-2xl font-bold">
-                            {work.title}
-                        </h3>
-
-                        <span className="text-sm text-gray-400 shrink-0 ml-4 font-mono">
+                        <span className="ml-4 shrink-0 font-mono text-sm text-gray-400">
                             {work.date}
                         </span>
-
                     </div>
 
-                    <span className="text-xs font-bold text-white bg-black px-2 py-1 rounded-md self-start">
+                    <span className="self-start rounded-md bg-black px-2 py-1 text-xs font-bold text-white">
                         {work.category}
                     </span>
-                    <div className="text-gray-600 leading-relaxed mt-4">
+                    <div className="mt-4 leading-relaxed text-gray-600">
                         {work.description}
                     </div>
                 </div>

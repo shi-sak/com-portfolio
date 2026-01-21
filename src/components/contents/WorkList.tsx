@@ -10,7 +10,6 @@ type Props = {
 };
 
 export const WorkList = ({ onSelect, initialId }: Props) => {
-
     const [category, setCategory] = useState(WORK_CATEGORY[0]);
     const [sortOrder, setSortOrder] = useState<"new" | "old">("new");
 
@@ -28,7 +27,10 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
     const targetRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
         if (targetRef.current) {
-            targetRef.current.scrollIntoView({ behavior: "instant", block: "center" });
+            targetRef.current.scrollIntoView({
+                behavior: "instant",
+                block: "center",
+            });
         }
     }, []);
 
@@ -42,7 +44,7 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
             className="flex flex-col gap-6"
         >
             {/* フィルタ、ソート */}
-            <WorkFilterBar 
+            <WorkFilterBar
                 category={category}
                 setCategory={setCategory}
                 sortOrder={sortOrder}
@@ -61,19 +63,19 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                             variants={{
                                 hidden: { opacity: 0, scale: 0.8 },
                                 rest: { opacity: 1, scale: 1 },
-                                hover: { scale: 1.02 }
+                                hover: { scale: 1.02 },
                             }}
                             initial="hidden"
                             animate="rest"
                             exit="hidden"
                             whileHover="hover"
                             whileTap="tap"
-                            className="relative aspect-square rounded-2xl cursor-pointer overflow-hidden shadow-sm"
+                            className="relative aspect-square cursor-pointer overflow-hidden rounded-2xl shadow-sm"
                         >
                             <motion.img
                                 src={work.imageSrc}
                                 alt={work.title}
-                                className="absolute inset-0 w-full h-full object-cover"
+                                className="absolute inset-0 h-full w-full object-cover"
                                 variants={{
                                     rest: { scale: 1 },
                                     hover: { scale: 1.1 },
@@ -84,20 +86,26 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                                 variants={{
                                     rest: { opacity: 0 },
                                     hover: { opacity: 1 },
-                                    tap: { scale: 0.95 }
+                                    tap: { scale: 0.95 },
                                 }}
                                 transition={{ duration: 0.3 }}
-                                className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-white p-2 text-center"
+                                className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 p-2 text-center text-white"
                             >
                                 <motion.div
                                     variants={{
                                         rest: { y: 10, opacity: 0 },
-                                        hover: { y: 0, opacity: 1 }
+                                        hover: { y: 0, opacity: 1 },
                                     }}
                                 >
-                                    <p className="font-mono text-xs text-gray-300">{work.date}</p>
-                                    <p className="font-bold text-lg">{work.title}</p>
-                                    <p className="text-xs text-gray-300">{work.category}</p>
+                                    <p className="font-mono text-xs text-gray-300">
+                                        {work.date}
+                                    </p>
+                                    <p className="text-lg font-bold">
+                                        {work.title}
+                                    </p>
+                                    <p className="text-xs text-gray-300">
+                                        {work.category}
+                                    </p>
                                 </motion.div>
                             </motion.div>
                         </motion.div>

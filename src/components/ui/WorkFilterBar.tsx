@@ -7,25 +7,24 @@ type Props = {
     setSortOrder: (order: "new" | "old") => void;
 };
 
-export const WorkFilterBar = ({ category, setCategory, sortOrder, setSortOrder }: Props) => {
+export const WorkFilterBar = ({
+    category,
+    setCategory,
+    sortOrder,
+    setSortOrder,
+}: Props) => {
     return (
-        <div className="
-            flex flex-wrap items-center justify-between gap-4 
-            sticky top-0 z-10 
-            bg-gray-50/50 backdrop-blur-md 
-            py-2 px-2 rounded-2xl 
-            -mt-6 mb-4 shadow-sm 
-        ">
+        <div className="sticky top-0 z-10 -mt-6 mb-4 flex flex-wrap items-center justify-between gap-4 rounded-2xl bg-gray-50/50 px-2 py-2 shadow-sm backdrop-blur-md">
             {/* 1. カテゴリフィルタ */}
-            <div className="flex gap-2 overflow-x-auto no-scrollbar">
+            <div className="no-scrollbar flex gap-2 overflow-x-auto">
                 {WORK_CATEGORY.map((cat) => (
                     <button
                         key={cat}
                         onClick={() => setCategory(cat)}
-                        className={`px-2 py-1 rounded-full text-sm font-bold transition whitespace-nowrap border ${
+                        className={`whitespace-nowrap rounded-full border px-2 py-1 text-sm font-bold transition ${
                             category === cat
-                                ? "bg-black text-white border-black"
-                                : "bg-white text-gray-500 border-gray-200 hover:border-gray-400"
+                                ? "border-black bg-black text-white"
+                                : "border-gray-200 bg-white text-gray-500 hover:border-gray-400"
                         }`}
                     >
                         {cat}
@@ -37,7 +36,7 @@ export const WorkFilterBar = ({ category, setCategory, sortOrder, setSortOrder }
             <select
                 value={sortOrder}
                 onChange={(e) => setSortOrder(e.target.value as "new" | "old")}
-                className="px-2 py-1 text-gray-500 font-bold rounded-lg border border-gray-200 text-sm bg-white focus:outline-none cursor-pointer"
+                className="cursor-pointer rounded-lg border border-gray-200 bg-white px-2 py-1 text-sm font-bold text-gray-500 focus:outline-none"
             >
                 <option value="new">Newest</option>
                 <option value="old">Oldest</option>

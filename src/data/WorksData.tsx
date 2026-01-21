@@ -12,10 +12,14 @@ export type Work = {
     description: ReactNode;
 };
 
-export const WORK_CATEGORY: string[] = ["All", "Illustration", "Comic", "Other"]
+export const WORK_CATEGORY: string[] = [
+    "All",
+    "Illustration",
+    "Comic",
+    "Other",
+];
 
 export const WORKS_DATA: Work[] = [
-
     {
         id: 1,
         title: "仕込むweb開設",
@@ -39,22 +43,26 @@ export const WORKS_DATA: Work[] = [
             <>
                 <p>LINEスタンプ第2弾を作りました！</p>
                 <p>第1弾と合わせてよろしくお願いします</p>
-                <p><a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://store.line.me/stickershop/product/32485026"
-                    className="underline"
-                >
-                    👉購入リンク
-                </a></p>
-                <p><a
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    href="https://store.line.me/stickershop/product/29162308"
-                    className="underline"
-                >
-                    👉第一弾はこちら
-                </a></p>
+                <p>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://store.line.me/stickershop/product/32485026"
+                        className="underline"
+                    >
+                        👉購入リンク
+                    </a>
+                </p>
+                <p>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://store.line.me/stickershop/product/29162308"
+                        className="underline"
+                    >
+                        👉第一弾はこちら
+                    </a>
+                </p>
             </>
         ),
     },

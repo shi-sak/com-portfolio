@@ -19,9 +19,21 @@ import koma15 from "../../assets/bgimages/15.png";
 
 // 配列にまとめます
 const BG_IMAGES = [
-    koma1, koma2, koma3, koma4, koma5,
-    koma6, koma7, koma8, koma9, koma10,
-    koma11, koma12, koma13, koma14, koma15,
+    koma1,
+    koma2,
+    koma3,
+    koma4,
+    koma5,
+    koma6,
+    koma7,
+    koma8,
+    koma9,
+    koma10,
+    koma11,
+    koma12,
+    koma13,
+    koma14,
+    koma15,
 ];
 // 降らせるコマの数（お好みで増減してください）
 const NUM_ITEMS = 15;
@@ -51,17 +63,17 @@ export const BackgroundEffect = () => {
 
     return (
         // 背景全体を覆う、操作できないエリア
-        <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
             {items.map((item) => (
                 <motion.div
                     key={item.id}
                     // --- 初期状態 ---
                     initial={{
-                        y: "-20vh",  // 画面の上の方に隠しておく
+                        y: "-20vh", // 画面の上の方に隠しておく
                         x: `${item.x}vw`, // ランダムな横位置
                         opacity: 0,
                         rotate: 0,
-                        scale: item.scale // ランダムなサイズ
+                        scale: item.scale, // ランダムなサイズ
                     }}
                     // --- アニメーション後 ---
                     animate={{
@@ -72,18 +84,18 @@ export const BackgroundEffect = () => {
                     // --- アニメーションの設定 ---
                     transition={{
                         duration: item.duration, // ランダムな時間
-                        delay: item.delay,       // ランダムな開始遅延
-                        repeat: Infinity,        // 無限ループ！
-                        ease: "linear"           // 一定の速度で（自然な落下感）
+                        delay: item.delay, // ランダムな開始遅延
+                        repeat: Infinity, // 無限ループ！
+                        ease: "linear", // 一定の速度で（自然な落下感）
                     }}
                     // コマの見た目（仮：白い影付きボックス）
-                    className="absolute w-24 md:w-32 h-auto shadow-lg rounded-sm overflow-hidden"
+                    className="absolute h-auto w-24 overflow-hidden rounded-sm shadow-lg md:w-32"
                 >
                     {/* ここに将来的に画像を入れる */}
                     <img
                         src={item.imageSrc}
                         alt=""
-                        className="w-full h-auto opacity-80 monochrome"
+                        className="monochrome h-auto w-full opacity-80"
                     />
                 </motion.div>
             ))}

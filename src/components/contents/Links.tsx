@@ -9,14 +9,15 @@ export const Links = () => {
                         href={linkdata.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="block p-4 border border-gray-200 rounded-xl hover:border-black transition flex justify-between"
+                        className="block flex justify-between rounded-xl border border-gray-200 p-4 transition hover:border-black"
                     >
                         <span className="font-bold">{linkdata.title}</span>
-                        <span className="text-gray-400">{linkdata.description}</span>
+                        <span className="text-gray-400">
+                            {linkdata.description}
+                        </span>
                     </a>
                 </li>
             ))}
         </ul>
     );
-
 };
