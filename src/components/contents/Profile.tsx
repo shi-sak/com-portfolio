@@ -72,7 +72,7 @@ export const Profile = () => {
                             <a
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                href="https://x.com/hashtag/maid_chan_doing_random_things"
+                                href="https://x.com/search?q=%23maid_chan_doing_random_things%20from%3Acom_shicom"
                                 className="underline"
                             >
                                 X(Twitter)タグ
