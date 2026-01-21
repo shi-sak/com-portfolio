@@ -52,7 +52,7 @@ export const Profile = () => {
                 <h3 className="text-xl font-bold mb-4 flex items-center gap-2 pt-4 border-t">
                     PROJECTS
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex flex-col gap-4">
 
                     <div className="bg-gray-50 p-4 rounded-xl text-sm">
                         <h4 className="font-bold">仕込みコンプレッサー</h4>
