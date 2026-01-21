@@ -12,7 +12,7 @@ export type Work = {
     description: ReactNode;
 };
 
-export const WORK_CATEGORY: string[] = ["All", "Illustration", "Comic", "Web", "Other"]
+export const WORK_CATEGORY: string[] = ["All", "Illustration", "Comic", "Other"]
 
 export const WORKS_DATA: Work[] = [
 
@@ -32,7 +32,7 @@ export const WORKS_DATA: Work[] = [
     {
         id: 2,
         title: "仕込むスタンプ2",
-        category: WORK_CATEGORY[4],
+        category: WORK_CATEGORY[3],
         date: "2026-1-23",
         imageSrc: img2,
         description: (
@@ -45,7 +45,7 @@ export const WORKS_DATA: Work[] = [
     {
         id: 3,
         title: "Sample3",
-        category: WORK_CATEGORY[3],
+        category: WORK_CATEGORY[2],
         date: "2026-1-23",
         imageSrc: img1,
         description: (

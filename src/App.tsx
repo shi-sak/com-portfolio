@@ -57,10 +57,10 @@ function App() {
 
   const [activeTab, setActiveTab] = useState<TabId | null>(null);
 
-  // モーダルが開いている時は背景スクロールを止める
-  useEffect(() => {
-    document.body.style.overflow = activeTab ? "hidden" : "auto";
-  }, [activeTab]);
+  // // モーダルが開いている時は背景スクロールを止める
+  // useEffect(() => {
+  //   document.body.style.overflow = activeTab ? "hidden" : "auto";
+  // }, [activeTab]);
 
   // workId があるなら、強制的に works タブにする
   useEffect(() => {

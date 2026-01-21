@@ -41,7 +41,7 @@ export const Layout = ({ children }: Props) => {
                     className="relative z-50 mb-8 w-40 h-auto cursor-grab will-change-transform" // will-changeで動作を滑らかに
                 />
 
-                {/* childrenもドラッグの邪魔にならないように、ポインターイベントを制御しておくと良いかも */}
+                {/* メイン */}
                 <div className="pointer-events-auto">
                     {children}
                 </div>
