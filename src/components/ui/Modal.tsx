@@ -60,13 +60,9 @@ export const Modal = ({ activeTab, tabs, onClose }: Props) => {
                                     <X size={24} />
                                 </button>
                             </div>
-                            <div
-                                ref={topSectionRef}
-                                className="flex-1 overflow-y-auto p-4 md:p-8"
-                            >
-                                <div className="flex-1 overflow-y-auto px-6 py-3 text-gray-600 leading-relaxed">
-                                    {currentContent.content}
-                                </div>
+                            <div ref={topSectionRef}></div>
+                            <div className="flex-1 overflow-y-auto px-6 py-3 text-gray-600 leading-relaxed">
+                                {currentContent.content}
                             </div>
                         </motion.div>
                     </div>

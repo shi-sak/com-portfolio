@@ -1,6 +1,8 @@
 import { useState, useMemo, useLayoutEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
+
 import { WORKS_DATA, WORK_CATEGORY, type Work } from "../../data/WorksData";
+import { WorkFilterBar } from "../ui/WorkFilterBar";
 
 type Props = {
     onSelect: (work: Work) => void;
@@ -32,74 +34,42 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
 
     return (
         <motion.div
-            key="list" // AnimatePresence用に必須
+            key="list"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
             className="flex flex-col gap-6"
         >
-            {/* 操作エリア */}
-            <div className="
-                                flex flex-wrap items-center justify-between gap-4 
-                                sticky top-0 z-10 
-                                bg-gray-50/50 backdrop-blur-md 
-                                py-2 px-2 rounded-2xl 
-                                -mt-6 mb-4 shadow-sm 
-                        ">
-                {/* 1. カテゴリフィルタ */}
-                <div className="flex gap-2 overflow-x-auto no-scrollbar">
-                    {WORK_CATEGORY.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setCategory(cat)}
-                            className={`px-2 py-1 rounded-full text-sm font-bold transition whitespace-nowrap border ${category === cat
-                                ? "bg-black text-white border-black"
-                                : "bg-white text-gray-500 border-gray-200 hover:border-gray-400"
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
+            {/* フィルタ、ソート */}
+            <WorkFilterBar 
+                category={category}
+                setCategory={setCategory}
+                sortOrder={sortOrder}
+                setSortOrder={setSortOrder}
+            />
 
-                {/* 2. ソート切り替え */}
-                <select
-                    value={sortOrder}
-                    onChange={(e) => setSortOrder(e.target.value as "new" | "old")}
-                    className="px-2 py-1 text-gray-500 font-bold rounded-lg border border-gray-200 text-sm bg-white focus:outline-none cursor-pointer"
-                >
-                    <option value="new">Newest</option>
-                    <option value="old">Oldest</option>
-                </select>
-            </div>
-
-            {/* WORKS */}
+            {/* WORKS Grid */}
             <motion.div layout className="grid grid-cols-2 gap-4">
                 <AnimatePresence mode="popLayout">
                     {filteredWorks.map((work) => (
                         <motion.div
                             key={work.id}
-
                             ref={work.id === initialId ? targetRef : null}
-
                             layoutId={`work-${work.id}`}
                             onClick={() => onSelect(work)}
-
                             variants={{
-                                hidden: { opacity: 0, scale: 0.8 }, // 出現前 & 消える時
-                                rest: { opacity: 1, scale: 1 },     // 通常時（ホバーしてない時）
-                                hover: { scale: 1.02 }              // ホバーした時（カード自体も少し拡大）
+                                hidden: { opacity: 0, scale: 0.8 },
+                                rest: { opacity: 1, scale: 1 },
+                                hover: { scale: 1.02 }
                             }}
-
-                            initial="hidden"      // 最初は hidden
-                            animate="rest"        // 登場したら rest になる（これでオーバーレイに rest が伝わります！）
-                            exit="hidden"         // 消える時は hidden
-                            whileHover="hover"    // ホバー時は hover
+                            initial="hidden"
+                            animate="rest"
+                            exit="hidden"
+                            whileHover="hover"
                             whileTap="tap"
                             className="relative aspect-square rounded-2xl cursor-pointer overflow-hidden shadow-sm"
                         >
-                            {/* ... 画像 ... */}
                             <motion.img
                                 src={work.imageSrc}
                                 alt={work.title}
@@ -110,7 +80,6 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                                 }}
                                 transition={{ duration: 0.5 }}
                             />
-                            {/* ... オーバーレイ部分 ... */}
                             <motion.div
                                 variants={{
                                     rest: { opacity: 0 },
@@ -131,7 +100,6 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                                     <p className="text-xs text-gray-300">{work.category}</p>
                                 </motion.div>
                             </motion.div>
-
                         </motion.div>
                     ))}
                 </AnimatePresence>
