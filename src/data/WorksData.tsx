@@ -105,13 +105,15 @@ export const WORKS_DATA: Work[] = [
     },
     {
         id: 6,
-        title: "Sample4Sample4Sample4Sample4Sample4",
+        title: "Sample4Sample4Sample4 Sample4Sample4Sample4 Sample4Sample4Sample4 Sample4Sample4",
         category: WORK_CATEGORY[2],
         date: "2026-01-23",
         imageSrc: img1,
         description: (
             <>
-                <p>テスト</p>
+                <p>
+                    テストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテストテスト
+                </p>
                 <p>テストです</p>
                 <p>テスト</p>
                 <p>テストです</p>
