@@ -52,7 +52,7 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
             />
 
             {/* WORKS Grid */}
-            <motion.div layout className="grid grid-cols-2 gap-4">
+            <motion.div layout className="grid grid-cols-2 gap-x-4 gap-y-8">
                 <AnimatePresence mode="popLayout">
                     {filteredWorks.map((work) => (
                         <motion.div
@@ -60,8 +60,9 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                             ref={work.id === initialId ? targetRef : null}
                             layoutId={`work-${work.id}`}
                             onClick={() => onSelect(work)}
+                            // ▼ バリアント調整: ホバー時に親要素としてどう振る舞うか
                             variants={{
-                                hidden: { opacity: 0, scale: 0.8 },
+                                hidden: { opacity: 0, scale: 0.9 },
                                 rest: { opacity: 1, scale: 1 },
                                 hover: { scale: 1.02 },
                             }}
@@ -70,44 +71,48 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                             exit="hidden"
                             whileHover="hover"
                             whileTap="tap"
-                            className="relative aspect-square cursor-pointer overflow-hidden rounded-2xl shadow-sm"
+                            // ▼ 元の aspect-square を削除し、縦並びレイアウトに変更
+                            className="group relative flex cursor-pointer flex-col gap-2"
                         >
-                            <motion.img
-                                src={work.imageSrc}
-                                alt={work.title}
-                                className="absolute inset-0 h-full w-full object-cover"
-                                variants={{
-                                    rest: { scale: 1 },
-                                    hover: { scale: 1.1 },
-                                }}
-                                transition={{ duration: 0.5 }}
-                            />
-                            <motion.div
-                                variants={{
-                                    rest: { opacity: 0 },
-                                    hover: { opacity: 1 },
-                                    tap: { scale: 0.95 },
-                                }}
-                                transition={{ duration: 0.3 }}
-                                className="absolute inset-0 flex flex-col items-center justify-center bg-black/60 p-2 text-center text-white"
-                            >
+                            {/* --- 1. 画像エリア（ここに aspect-square を移動） --- */}
+                            <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gray-100 shadow-sm">
+                                <motion.img
+                                    src={work.imageSrc}
+                                    alt={work.title}
+                                    className="absolute inset-0 h-full w-full object-cover"
+                                    variants={{
+                                        rest: { scale: 1 },
+                                        hover: { scale: 1.1 },
+                                    }}
+                                    transition={{ duration: 0.5 }}
+                                />
+
+                                {/* ▼ ホバー時：カテゴリだけ表示するオーバーレイ */}
                                 <motion.div
                                     variants={{
-                                        rest: { y: 10, opacity: 0 },
-                                        hover: { y: 0, opacity: 1 },
+                                        rest: { opacity: 0 },
+                                        hover: { opacity: 1 },
+                                        tap: { scale: 0.95 },
                                     }}
+                                    transition={{ duration: 0.3 }}
+                                    className="absolute inset-0 flex items-center justify-center bg-black/40 text-white"
                                 >
-                                    <p className="font-mono text-xs text-gray-300">
-                                        {work.date}
-                                    </p>
-                                    <p className="text-lg font-bold">
-                                        {work.title}
-                                    </p>
-                                    <p className="text-xs text-gray-300">
+                                    <span className="text-lg font-bold tracking-wider">
                                         {work.category}
-                                    </p>
+                                    </span>
                                 </motion.div>
-                            </motion.div>
+                            </div>
+
+                            {/* --- 2. テキスト表示エリア（画像の下に追加） --- */}
+                            <div className="px-1">
+                                <h3 className="truncate text-sm font-bold leading-tight text-gray-800 transition-colors group-hover:text-blue-600 md:text-base">
+                                    {" "}
+                                    {work.title}
+                                </h3>
+                                <p className="mt-1 font-mono text-xs text-gray-400">
+                                    {work.date}
+                                </p>
+                            </div>
                         </motion.div>
                     ))}
                 </AnimatePresence>

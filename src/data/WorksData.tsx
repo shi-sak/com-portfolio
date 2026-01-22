@@ -66,4 +66,72 @@ export const WORKS_DATA: Work[] = [
             </>
         ),
     },
+    {
+        id: 3,
+        title: "Sample3",
+        category: WORK_CATEGORY[1],
+        date: "2026-01-23",
+        imageSrc: img1,
+        description: (
+            <>
+                <p>仕込むwebを作成しました！</p>
+                <p>シンプルでぽよぽよした感じにしました</p>
+            </>
+        ),
+    },
+    {
+        id: 4,
+        title: "Sample4Sample4Sample4Sample4Sample4",
+        category: WORK_CATEGORY[2],
+        date: "2026-01-23",
+        imageSrc: img1,
+        description: (
+            <>
+                <p>やほ</p>
+            </>
+        ),
+    },
+    {
+        id: 7,
+        title: "Sample3",
+        category: WORK_CATEGORY[1],
+        date: "2026-01-23",
+        imageSrc: img1,
+        description: (
+            <>
+                <p>愛だぜっ</p>
+            </>
+        ),
+    },
+    {
+        id: 6,
+        title: "Sample4Sample4Sample4Sample4Sample4",
+        category: WORK_CATEGORY[2],
+        date: "2026-01-23",
+        imageSrc: img1,
+        description: (
+            <>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+                <p>テスト</p>
+                <p>テストです</p>
+            </>
+        ),
+    },
 ];
