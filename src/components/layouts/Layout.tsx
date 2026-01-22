@@ -34,7 +34,7 @@ export const Layout = ({ children }: Props) => {
                     }}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95, cursor: "grabbing" }}
-                    className="relative z-50 mb-2 h-auto w-40 cursor-grab will-change-transform" // will-changeで動作を滑らかに
+                    className="relative z-[8000] mb-2 h-auto w-40 cursor-grab will-change-transform" // will-changeで動作を滑らかに
                 />
 
                 {/* メイン */}

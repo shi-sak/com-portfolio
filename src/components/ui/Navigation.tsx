@@ -10,7 +10,7 @@ type Props = {
 
 export const Navigation = ({ tabs, activeTab, onTabChange }: Props) => {
     return (
-        <nav className="relative z-[9999] mb-8 flex max-w-[95vw] items-center gap-1 overflow-x-auto whitespace-nowrap rounded-full border-2 border-black bg-white px-3 py-2 text-black shadow-xl md:max-w-fit md:gap-4 md:px-8 md:py-4">
+        <nav className="relative z-50 mb-8 flex max-w-[95vw] items-center gap-1 overflow-x-auto whitespace-nowrap rounded-full border-2 border-black bg-white px-3 py-2 text-black shadow-xl md:max-w-fit md:gap-4 md:px-8 md:py-4">
             <motion.button
                 onClick={() => onTabChange(null)}
                 whileTap={{ scale: 0.8 }}

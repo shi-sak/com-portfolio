@@ -1,7 +1,22 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { createPortal } from "react-dom";
 import icon from "../../assets/icon.jpeg";
 import { X_LINK, INS_LINK, MICOM_LINK } from "../../data/LinkData";
 
+//sample画像一覧
+const illustModules = import.meta.glob(
+    "../../assets/sampleillusts/*.{png,jpg,jpeg,webp}",
+    {
+        eager: true,
+        import: "default",
+    },
+);
+const illustImages = Object.values(illustModules) as string[];
+
 export const Profile = () => {
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
     return (
         <div className="space-y-4">
             <section>
@@ -134,12 +149,60 @@ export const Profile = () => {
                 <h3 className="border-t pt-4 text-xl font-bold">
                     ILLUST SAMPLE
                 </h3>
-                (ここにイラストを何枚か貼る)
+
+                <div className="columns-2 gap-3 space-y-3 md:columns-3">
+                    {illustImages.map((src, index) => (
+                        <div key={index} className="break-inside-avoid">
+                            <motion.img
+                                src={src}
+                                alt={`illustration-${index}`}
+                                loading="lazy"
+                                className="w-full cursor-pointer cursor-zoom-in rounded-lg object-cover transition-opacity hover:opacity-90"
+                                onClick={() => setSelectedImage(src)}
+                                layoutId={`illust-${src}`}
+                            />
+                        </div>
+                    ))}
+                </div>
+
                 <p className="pt-4 text-sm text-gray-500">
                     <span className="underline">{X_LINK}</span>
                     等、各種SNSにて随時イラストをアップしています
                 </p>
             </section>
+
+            {createPortal(
+                <AnimatePresence>
+                    {selectedImage && (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            // z-50 だとナビゲーション(z-50)と戦う可能性があるので、最強の z-[9999] にする
+                            className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4"
+                            onClick={() => setSelectedImage(null)}
+                        >
+                            <motion.img
+                                src={selectedImage}
+                                layoutId={`illust-${selectedImage}`}
+                                initial={{ scale: 0.8 }}
+                                animate={{ scale: 1 }}
+                                exit={{ scale: 0.8 }}
+                                className="max-h-full max-w-full rounded-md object-contain shadow-2xl"
+                                onClick={(e) => e.stopPropagation()}
+                            />
+
+                            <button
+                                className="absolute right-4 top-4 rounded-full bg-black/50 p-2 text-white transition-colors hover:bg-black/70"
+                                onClick={() => setSelectedImage(null)}
+                            >
+                                ✕
+                            </button>
+                        </motion.div>
+                    )}
+                </AnimatePresence>,
+                document.body, // ← 「bodyタグの直下に描画して！」という指定
+            )}
         </div>
     );
 };
