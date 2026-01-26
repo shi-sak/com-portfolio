@@ -183,7 +183,7 @@ export const Profile = () => {
 
             {/* おすすめイラスト */}
             <section>
-                <h3 className="border-t pt-4 text-xl font-bold">
+                <h3 className="border-t py-4 text-xl font-bold">
                     ILLUST SAMPLE
                 </h3>
 

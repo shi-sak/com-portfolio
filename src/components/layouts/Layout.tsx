@@ -17,7 +17,7 @@ export const Layout = ({ children }: Props) => {
             {/* --- メインコンテンツ --- */}
             <motion.div
                 ref={constraintsRef}
-                className="relative z-10 flex min-h-screen flex-col items-center px-4 pb-20 pt-10"
+                className="relative z-10 flex min-h-screen flex-col items-center px-4 pb-20 pt-6"
             >
                 <motion.img
                     src={logoImg}
