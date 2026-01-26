@@ -11,7 +11,7 @@ export const Loading = () => {
             exit={{
                 y: "-100%",
                 transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] },
-            }} // ちょっとリッチなイージングにしてみました
+            }}
         >
             {/* GIFを表示 */}
             <img
