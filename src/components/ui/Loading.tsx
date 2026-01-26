@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import loadingGif from "../../assets/loading.gif";
+import loadingGif from "../../assets/loading.webp";
 
 export const Loading = () => {
     return (
