@@ -1,21 +1,21 @@
 import { motion } from "motion/react";
 import { useMemo } from "react";
 
-import koma1 from "../../assets/bgimages/1.png";
-import koma2 from "../../assets/bgimages/2.png";
-import koma3 from "../../assets/bgimages/3.png";
-import koma4 from "../../assets/bgimages/4.png";
-import koma5 from "../../assets/bgimages/5.png";
-import koma6 from "../../assets/bgimages/6.png";
-import koma7 from "../../assets/bgimages/7.png";
-import koma8 from "../../assets/bgimages/8.png";
-import koma9 from "../../assets/bgimages/9.png";
-import koma10 from "../../assets/bgimages/10.png";
-import koma11 from "../../assets/bgimages/11.png";
-import koma12 from "../../assets/bgimages/12.png";
-import koma13 from "../../assets/bgimages/13.png";
-import koma14 from "../../assets/bgimages/14.png";
-import koma15 from "../../assets/bgimages/15.png";
+import koma1 from "../../assets/bgimages/1.webp";
+import koma2 from "../../assets/bgimages/2.webp";
+import koma3 from "../../assets/bgimages/3.webp";
+import koma4 from "../../assets/bgimages/4.webp";
+import koma5 from "../../assets/bgimages/5.webp";
+import koma6 from "../../assets/bgimages/6.webp";
+import koma7 from "../../assets/bgimages/7.webp";
+import koma8 from "../../assets/bgimages/8.webp";
+import koma9 from "../../assets/bgimages/9.webp";
+import koma10 from "../../assets/bgimages/10.webp";
+import koma11 from "../../assets/bgimages/11.webp";
+import koma12 from "../../assets/bgimages/12.webp";
+import koma13 from "../../assets/bgimages/13.webp";
+import koma14 from "../../assets/bgimages/14.webp";
+import koma15 from "../../assets/bgimages/15.webp";
 
 // 配列にまとめます
 const BG_IMAGES = [

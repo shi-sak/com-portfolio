@@ -101,14 +101,36 @@ export const WORKS_DATA: Work[] = [
     },
     {
         id: 7,
-        title: "Sample3",
-        category: WORK_CATEGORY[1],
-        type: WORK_TYPE[0],
-        date: "2026-01-23",
+        title: "[R-18]comicエンドロール 掲載",
+        category: WORK_CATEGORY[2],
+        type: WORK_TYPE[1],
+        date: "2025-11-28",
         imageSrc: img1,
         description: (
             <>
-                <p>愛だぜっ</p>
+                <p>
+                    〇〇社様のWEB雑誌『comicエンドロール』に『凪の餞』というお話を仕組み名義で掲載していただいています
+                </p>
+                <p>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href=""
+                        className="underline"
+                    >
+                        👉購入リンク
+                    </a>
+                </p>
+                <p>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href=""
+                        className="underline"
+                    >
+                        👉単話での購入はこちら
+                    </a>
+                </p>
             </>
         ),
         isSecret: true,
