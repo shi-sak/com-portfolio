@@ -118,6 +118,7 @@ function App() {
                                 <img
                                     src={secret}
                                     alt="Secret Mode"
+                                    loading="lazy"
                                     className="max-h-[50vh] max-w-full object-contain drop-shadow-xl"
                                 />
                             </motion.div>

@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import loadingGif from "../../assets/loading.webp";
+import loadingGif from "/loading.webp";
 
 export const Loading = () => {
     return (
@@ -19,6 +19,7 @@ export const Loading = () => {
                 alt="Loading..."
                 // サイズ調整（必要なら w-32 とか変えてください）
                 className="h-auto w-48 md:w-64"
+                fetchPriority="high"
             />
         </motion.div>
     );

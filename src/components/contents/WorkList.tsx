@@ -92,6 +92,7 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                                 <motion.img
                                     src={work.imageSrc}
                                     alt={work.title}
+                                    loading="lazy"
                                     className="absolute inset-0 h-full w-full object-cover"
                                     variants={{
                                         rest: { scale: 1 },
