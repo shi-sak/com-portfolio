@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { WORKS_DATA, WORK_CATEGORY, type Work } from "../../data/WorksData";
 import { WorkFilterBar } from "../ui/WorkFilterBar";
 
+import { useSecret } from "../../contexts/SecretContext";
+
 type Props = {
     onSelect: (work: Work) => void;
     initialId: number | null;
@@ -13,16 +15,27 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
     const [category, setCategory] = useState(WORK_CATEGORY[0]);
     const [sortOrder, setSortOrder] = useState<"new" | "old">("new");
 
+    const { isSecretMode } = useSecret();
+
     const filteredWorks = useMemo(() => {
         let works = [...WORKS_DATA];
+
+        //シークレットモードでの表示
+        if (!isSecretMode) {
+            works = works.filter((work) => !work.isSecret);
+        }
+
+        // カテゴリでの絞り込み（既存）
         if (category !== WORK_CATEGORY[0]) {
             works = works.filter((work) => work.category === category);
         }
+
+        // 並び替え（既存）
         works.sort((a, b) => {
             return sortOrder === "new" ? b.id - a.id : a.id - b.id;
         });
         return works;
-    }, [category, sortOrder]);
+    }, [category, sortOrder, isSecretMode]);
 
     const targetRef = useRef<HTMLDivElement>(null);
     useLayoutEffect(() => {
@@ -95,17 +108,27 @@ export const WorkList = ({ onSelect, initialId }: Props) => {
                                         tap: { scale: 0.95 },
                                     }}
                                     transition={{ duration: 0.3 }}
-                                    className="absolute inset-0 flex items-center justify-center bg-black/40 text-white"
+                                    className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-white"
                                 >
-                                    <span className="text-lg font-bold tracking-wider">
+                                    <p className="text-lg font-bold tracking-wider">
                                         {work.category}
-                                    </span>
+                                    </p>
+                                    <p className="text-xs tracking-wider">
+                                        {work.type}
+                                    </p>
                                 </motion.div>
                             </div>
 
                             {/* --- 2. テキスト表示エリア（画像の下に追加） --- */}
                             <div className="px-1">
-                                <h3 className="truncate text-sm font-bold leading-tight text-gray-800 transition-colors group-hover:text-blue-600 md:text-base">
+                                <h3
+                                    // 1. 全体をバッククォートで囲む
+                                    className={`truncate text-sm font-bold leading-tight transition-colors md:text-base ${
+                                        work.isSecret
+                                            ? "text-gray-800 underline group-hover:text-blue-600"
+                                            : "text-gray-800 group-hover:text-blue-600"
+                                    } `}
+                                >
                                     {" "}
                                     {work.title}
                                 </h3>

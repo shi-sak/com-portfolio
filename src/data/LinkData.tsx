@@ -5,6 +5,7 @@ export type Link = {
     title: string;
     description: string;
     link: string;
+    isSecret?: boolean;
 };
 
 export const LINK_DATA: Link[] = [
@@ -62,6 +63,22 @@ export const LINK_DATA: Link[] = [
         description: "@com_nicom",
         link: "https://x.com/com_nicom",
     },
+
+    //SecretMode
+    {
+        id: 101,
+        title: "成人向け(X(Twitter))",
+        description: "仕組み",
+        link: "https://x.com/shikumichan",
+        isSecret: true,
+    },
+    {
+        id: 102,
+        title: "音楽名義(linktree)",
+        description: "Shion Sakamoto",
+        link: "https://linktr.ee/ShionSakamoto",
+        isSecret: true,
+    },
 ];
 
 export const X_LINK: ReactNode = (
@@ -112,6 +129,32 @@ export const MICOM_LINK: ReactNode = (
             className="underline"
         >
             見込むちゃん(YouTube)
+        </a>
+    </>
+);
+
+export const SHIKUMI_LINK: ReactNode = (
+    <>
+        <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={LINK_DATA.find((link) => link.id == 101)?.link}
+            className="underline"
+        >
+            仕組み(X(Twitter))
+        </a>
+    </>
+);
+
+export const MUSIC_LINK: ReactNode = (
+    <>
+        <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={LINK_DATA.find((link) => link.id == 102)?.link}
+            className="underline"
+        >
+            Shion Sakamoto(linktree)
         </a>
     </>
 );

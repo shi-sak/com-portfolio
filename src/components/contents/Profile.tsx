@@ -2,7 +2,14 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
 import icon from "../../assets/icon.jpeg";
-import { X_LINK, INS_LINK, MICOM_LINK } from "../../data/LinkData";
+import {
+    X_LINK,
+    INS_LINK,
+    MICOM_LINK,
+    SHIKUMI_LINK,
+    MUSIC_LINK,
+} from "../../data/LinkData";
+import { useSecret } from "../../contexts/SecretContext";
 
 //sample画像一覧
 const illustModules = import.meta.glob(
@@ -16,6 +23,7 @@ const illustImages = Object.values(illustModules) as string[];
 
 export const Profile = () => {
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const { isSecretMode } = useSecret();
 
     return (
         <div className="space-y-4">
@@ -109,6 +117,35 @@ export const Profile = () => {
                             </a>
                         </p>
                     </div>
+
+                    {/* 以下、隠しコマンドで表示 */}
+                    {isSecretMode && (
+                        <>
+                            <div className="animate-pulse-slow rounded-xl border bg-gray-700 p-4 text-sm text-gray-300 shadow-inner">
+                                <h4 className="flex items-center gap-2 font-bold">
+                                    仕組み
+                                </h4>
+                                <p className="mt-1 text-sm text-gray-400">
+                                    成人向けのお仕事等をこの名義で行っています
+                                </p>
+                                <p className="mt-1 text-sm text-gray-400">
+                                    {SHIKUMI_LINK}
+                                </p>
+                            </div>
+
+                            <div className="animate-pulse-slow rounded-xl border bg-gray-700 p-4 text-sm text-gray-300 shadow-inner">
+                                <h4 className="flex items-center gap-2 font-bold">
+                                    Shion Sakamoto
+                                </h4>
+                                <p className="mt-1 text-sm text-gray-400">
+                                    こっそりやってる音楽名義です
+                                </p>
+                                <p className="mt-1 text-sm text-gray-400">
+                                    {MUSIC_LINK}
+                                </p>
+                            </div>
+                        </>
+                    )}
                     <p className="mt-1 text-sm text-gray-500">　etc...</p>
                 </div>
             </section>

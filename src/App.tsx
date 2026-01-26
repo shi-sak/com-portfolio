@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
+//パーツ
 import { Layout } from "./components/layouts/Layout";
 import { Loading } from "./components/ui/Loading";
 import { Navigation } from "./components/ui/Navigation";
@@ -13,7 +14,10 @@ import { Works } from "./components/contents/Works";
 import { Contact } from "./components/contents/Contact";
 import { Links } from "./components/contents/Links";
 
+//Secretモード関連
+import secret from "./assets/secret.png";
 import { useKonamiCode } from "./hooks/secretCommand";
+import { SecretProvider } from "./contexts/SecretContext";
 
 // コンテンツのデータ定義
 const TABS: TabItem[] = [
@@ -95,32 +99,46 @@ function App() {
 
     return (
         <>
-            {/* loading */}
-            <AnimatePresence mode="wait">
-                {isLoading && <Loading key="loading" />}
-            </AnimatePresence>
+            <SecretProvider value={{ isSecretMode }}>
+                {/* loading */}
+                <AnimatePresence mode="wait">
+                    {isLoading && <Loading key="loading" />}
+                </AnimatePresence>
 
-            <Layout>
-                {isSecretMode && (
-                    <div className="pointer-events-none fixed left-0 top-0 flex h-full w-full items-center justify-center">
-                        <h1>SECRET MODE</h1>
-                    </div>
-                )}
+                <Layout>
+                    {isSecretMode && (
+                        <AnimatePresence>
+                            <motion.div
+                                initial={{ opacity: 0, y: 100 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 100 }}
+                                transition={{ duration: 0.5, ease: "easeOut" }}
+                                className="pointer-events-none fixed inset-0 z-50 flex items-end justify-center"
+                            >
+                                <img
+                                    src={secret}
+                                    alt="Secret Mode"
+                                    className="max-h-[50vh] max-w-full object-contain drop-shadow-xl"
+                                />
+                            </motion.div>
+                        </AnimatePresence>
+                    )}
 
-                {/* ナビゲーション */}
-                <Navigation
-                    tabs={TABS}
-                    activeTab={activeTab}
-                    onTabChange={handleTabChange}
-                />
+                    {/* ナビゲーション */}
+                    <Navigation
+                        tabs={TABS}
+                        activeTab={activeTab}
+                        onTabChange={handleTabChange}
+                    />
 
-                {/* モーダル */}
-                <Modal
-                    tabs={TABS}
-                    activeTab={activeTab}
-                    onClose={() => setActiveTab(null)}
-                />
-            </Layout>
+                    {/* モーダル */}
+                    <Modal
+                        tabs={TABS}
+                        activeTab={activeTab}
+                        onClose={() => setActiveTab(null)}
+                    />
+                </Layout>
+            </SecretProvider>
         </>
     );
 }
