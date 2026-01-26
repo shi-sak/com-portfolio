@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { createPortal } from "react-dom";
-import icon from "../../assets/icon.jpeg";
+import icon from "../../assets/icon.webp";
 import {
     X_LINK,
     INS_LINK,

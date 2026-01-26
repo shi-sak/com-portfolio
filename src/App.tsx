@@ -15,7 +15,7 @@ import { Contact } from "./components/contents/Contact";
 import { Links } from "./components/contents/Links";
 
 //Secretモード関連
-import secret from "./assets/secret.png";
+import secret from "./assets/secret.webp";
 import { useKonamiCode } from "./hooks/secretCommand";
 import { SecretProvider } from "./contexts/SecretContext";
 

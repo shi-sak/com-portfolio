@@ -2,7 +2,7 @@ import { useRef, type ReactNode } from "react";
 import { motion } from "motion/react";
 
 import { BackgroundEffect } from "../ui/BackgroundEffect";
-import logoImg from "../../assets/logo.png";
+import logoImg from "../../assets/logo.webp";
 
 type Props = {
     children: ReactNode;
