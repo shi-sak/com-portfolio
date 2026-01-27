@@ -120,6 +120,19 @@ export const BS_LINK: ReactNode = (
     </>
 );
 
+export const SKEB_LINK: ReactNode = (
+    <>
+        <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={LINK_DATA.find((link) => link.title == "Skeb")?.link}
+            className="underline"
+        >
+            Skeb
+        </a>
+    </>
+);
+
 export const MICOM_LINK: ReactNode = (
     <>
         <a
