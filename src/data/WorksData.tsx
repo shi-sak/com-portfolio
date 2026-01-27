@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import work1 from "../assets/works/work1.webp";
 import work2 from "../assets/works/work2.webp";
-import work3 from "../assets/works/work3.webp";
+//import work3 from "../assets/works/work3.webp";
 import work4 from "../assets/works/work4.webp";
 import work5 from "../assets/works/work5.webp";
 import work6 from "../assets/works/work6.webp";
