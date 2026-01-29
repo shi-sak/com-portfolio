@@ -103,6 +103,9 @@ export const ContactForm = () => {
                         >
                             送信する
                         </motion.button>
+                        <p className="mt-2 text-center text-xs text-gray-400">
+                            ※ご入力いただいた個人情報は、お問い合わせへの返信対応のみに使用します。
+                        </p>
                     </motion.form>
                 )}
             </AnimatePresence>
