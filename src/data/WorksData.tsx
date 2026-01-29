@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 import work1 from "../assets/works/work1.webp";
 import work2 from "../assets/works/work2.webp";
-import work3 from "../assets/works/work3.webp";
+//import work3 from "../assets/works/work3.webp";
 import work4 from "../assets/works/work4.webp";
 import work5 from "../assets/works/work5.webp";
 import work6 from "../assets/works/work6.webp";
@@ -86,30 +86,30 @@ export const WORKS_DATA: Work[] = [
             </>
         ),
     },
-    {
-        id: 3,
-        title: "monokuro.world イラスト提供",
-        category: WORK_CATEGORY[1],
-        type: WORK_TYPE[1],
-        date: "2025-05-08",
-        imageSrc: work3,
-        description: (
-            <>
-                <p>
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href="https://www.monokuro.world/"
-                        className="underline"
+    // {
+    //     id: 3,
+    //     title: "monokuro.world イラスト提供",
+    //     category: WORK_CATEGORY[1],
+    //     type: WORK_TYPE[1],
+    //     date: "2025-05-08",
+    //     imageSrc: work3,
+    //     description: (
+    //         <>
+    //             <p>
+    //                 <a
+    //                     target="_blank"
+    //                     rel="noopener noreferrer"
+    //                     href="https://www.monokuro.world/"
+    //                     className="underline"
 
-                    >
-                        monokuro.world様
-                    </a>
-                    サイト内のイラストを一枚提供しました。
-                </p>
-            </>
-        ),
-    },
+    //                 >
+    //                     monokuro.world様
+    //                 </a>
+    //                 サイト内のイラストを一枚提供しました。
+    //             </p>
+    //         </>
+    //     ),
+    // },
     {
         id: 4,
         title: "🔞comicエンドロール vol.2",
