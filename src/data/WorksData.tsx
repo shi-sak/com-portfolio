@@ -2,10 +2,11 @@ import type { ReactNode } from "react";
 
 import work1 from "../assets/works/work1.webp";
 import work2 from "../assets/works/work2.webp";
-//import work3 from "../assets/works/work3.webp";
+import work3 from "../assets/works/work3.webp";
 import work4 from "../assets/works/work4.webp";
 import work5 from "../assets/works/work5.webp";
 import work6 from "../assets/works/work6.webp";
+import work7 from "../assets/works/work7.webp";
 
 export type Work = {
     id: number;
@@ -37,9 +38,11 @@ export const WORKS_DATA: Work[] = [
         imageSrc: work1,
         description: (
             <>
-                <p>aliceBlue様の楽曲『くすぶる/ねむる』のMVイラストを担当しました。</p>
+                <p>
+                    aliceBlue様の楽曲『くすぶる/ねむる』のMVイラストを担当しました。
+                </p>
                 <iframe
-                    className="w-full aspect-video rounded-lg shadow-md"
+                    className="aspect-video w-full rounded-lg shadow-md"
                     loading="lazy"
                     src="https://www.youtube.com/embed/1HirWSddwXg?si=-69bE8YSmQ9IaxWq"
                     title="YouTube video player"
@@ -71,7 +74,6 @@ export const WORKS_DATA: Work[] = [
                         rel="noopener noreferrer"
                         href="https://x.com/_666mg"
                         className="underline"
-
                     >
                         めあたそ様
                     </a>
@@ -79,37 +81,45 @@ export const WORKS_DATA: Work[] = [
                 </p>
                 <blockquote className="twitter-tweet">
                     <p lang="zxx" dir="ltr">
-                        <a href="https://t.co/XneB13fgO0">pic.twitter.com/XneB13fgO0</a>
-                    </p>&mdash; めあたそ (@_666mg) <a href="https://twitter.com/_666mg/status/1880933472099074453?ref_src=twsrc%5Etfw">January 19, 2025</a>
-                    </blockquote> 
-                    <script async src="https://platform.twitter.com/widgets.js"></script>
+                        <a href="https://t.co/XneB13fgO0">
+                            pic.twitter.com/XneB13fgO0
+                        </a>
+                    </p>
+                    &mdash; めあたそ (@_666mg){" "}
+                    <a href="https://twitter.com/_666mg/status/1880933472099074453?ref_src=twsrc%5Etfw">
+                        January 19, 2025
+                    </a>
+                </blockquote>
+                <script
+                    async
+                    src="https://platform.twitter.com/widgets.js"
+                ></script>
             </>
         ),
     },
-    // {
-    //     id: 3,
-    //     title: "monokuro.world イラスト提供",
-    //     category: WORK_CATEGORY[1],
-    //     type: WORK_TYPE[1],
-    //     date: "2025-05-08",
-    //     imageSrc: work3,
-    //     description: (
-    //         <>
-    //             <p>
-    //                 <a
-    //                     target="_blank"
-    //                     rel="noopener noreferrer"
-    //                     href="https://www.monokuro.world/"
-    //                     className="underline"
-
-    //                 >
-    //                     monokuro.world様
-    //                 </a>
-    //                 サイト内のイラストを一枚提供しました。
-    //             </p>
-    //         </>
-    //     ),
-    // },
+    {
+        id: 3,
+        title: "monokuro.world イラスト提供",
+        category: WORK_CATEGORY[1],
+        type: WORK_TYPE[1],
+        date: "2025-05-08",
+        imageSrc: work3,
+        description: (
+            <>
+                <p>
+                    <a
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.monokuro.world/"
+                        className="underline"
+                    >
+                        monokuro.world様
+                    </a>
+                    サイト内のイラストを一枚提供しました。
+                </p>
+            </>
+        ),
+    },
     {
         id: 4,
         title: "🔞comicエンドロール vol.2",
@@ -142,7 +152,7 @@ export const WORKS_DATA: Work[] = [
                         👉単話購入リンク(FANZA)
                     </a>
                 </p>
-                                <p>
+                <p>
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
@@ -165,7 +175,6 @@ export const WORKS_DATA: Work[] = [
             </>
         ),
         isSecret: true,
-
     },
     {
         id: 5,
@@ -212,6 +221,28 @@ export const WORKS_DATA: Work[] = [
             <>
                 <p>仕込むwebを作成しました！</p>
                 <p>シンプルでぽよぽよした感じにしました。</p>
+            </>
+        ),
+    },
+    {
+        id: 7,
+        title: "HYPER OEKAKI BBS開設",
+        category: WORK_CATEGORY[3],
+        type: WORK_TYPE[0],
+        date: "2026-02-01",
+        imageSrc: work7,
+        description: (
+            <>
+                <p>お絵描き掲示板を作成しました！</p>
+                <p>懐かしい雰囲気にしてみました</p>
+                <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href="https://bbs.com-shicom.com/"
+                    className="underline"
+                >
+                    👉こちらから飛べます
+                </a>
             </>
         ),
     },
