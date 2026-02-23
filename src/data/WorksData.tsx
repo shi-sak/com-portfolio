@@ -149,7 +149,7 @@ export const WORKS_DATA: Work[] = [
                         href="https://www.dlsite.com/books/work/=/product_id/BJ02290348.html"
                         className="underline"
                     >
-                        👉単話購入リンク(FANZA)
+                        👉単話購入リンク(DLSite)
                     </a>
                 </p>
                 <p>
@@ -169,7 +169,7 @@ export const WORKS_DATA: Work[] = [
                         href="https://book.dmm.co.jp/product/6234258/b092agwrk03359/?i3_ref=list&i3_ord=2&dmmref=a_List_commonList"
                         className="underline"
                     >
-                        👉単購入リンク(FANZA)
+                        👉単話購入リンク(FANZA)
                     </a>
                 </p>
             </>

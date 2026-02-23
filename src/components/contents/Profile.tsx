@@ -70,7 +70,8 @@ export const Profile = () => {
                     </p>
 
                     <ul className="list-disc px-4 pt-4">
-                        <li>2026/2/22 COMITIA155 き21a</li>
+                        <li>2026/5/9 横浜メイド博覧会 2026@大さん橋ホール</li>
+                        <li>2026/6/7 COMITIA156@東京ビッグサイト</li>
                     </ul>
                 </div>
             </section>
